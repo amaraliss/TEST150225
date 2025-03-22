@@ -1,10 +1,7 @@
 package org.example.edu.controller;
 
 import org.example.edu.model.Student;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +22,16 @@ public class StudentController {
         Student savedStudent = new Student(countid, name, email, age);
         studentList.add(savedStudent);
         return savedStudent.getId();
+    }
+
+    @GetMapping("/student/{id}")
+    public Student getStudentById(@PathVariable long id) {
+
+        for (Student student : studentList) {
+            if (student.getId() == id) return student;
+        }
+
+        return null;
     }
 
 }
