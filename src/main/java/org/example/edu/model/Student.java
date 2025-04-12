@@ -1,11 +1,13 @@
 package org.example.edu.model;
 
 import jakarta.persistence.*;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "student")
 @NoArgsConstructor
+@Data
 public class  Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
